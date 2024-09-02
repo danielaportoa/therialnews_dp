@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @news %>
+
+<div>
+  <%= link_to "Noticia anterior", news_path %>
+    <% if user_signed_in? %>
+    <% if current_user.id == @news.user_id %>
+    <%= link_to "Editar noticias", edit_news_path(@news) %> |
+    <%= button_to "Eliminar Noticias", @news, method: :delete %>
+    <% end %>
+    <% end %>
+</div>
